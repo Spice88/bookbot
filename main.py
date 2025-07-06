@@ -10,5 +10,10 @@ def main():
 
         print(get_book_text(f))
 
+from stats import count
 
-main()
+from stats import char_count
+
+count("books/frankenstein.txt")
+
+char_count("books/frankenstein.txt")
