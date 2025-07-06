@@ -14,6 +14,25 @@ from stats import count
 
 from stats import char_count
 
-count("books/frankenstein.txt")
+from stats import sort_this_book
 
-char_count("books/frankenstein.txt")
+from stats import sort_key
+
+def main_2(file):
+
+        print("=========== BOOKBOT ===========")
+        print(f"Analyzing book found at {file}...")
+        print("---------- Word Count ---------")
+        print(f"Found {count(file)} total words")
+        print("-------- Character Count ------")
+
+        list_1 = []
+        list_1 = sort_this_book(file)
+
+        for line in list_1:
+
+            print(f"{line["letter"]}: {line["num"]}")
+
+        print("============= END =============")
+
+main_2("books/frankenstein.txt")

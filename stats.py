@@ -8,11 +8,12 @@ def count(file):
 
         words = file_contents.split()
 
-        for word in words:
+    for word in words:
 
-            num_words += 1
+        num_words += 1
 
-    print(f"{num_words} words found in the document")
+    return num_words
+
 
 def char_count(file):
     
@@ -26,19 +27,48 @@ def char_count(file):
 
         words = file_contents_lower.split()
 
-        for word in words:
+    for word in words:
 
-            chars = list(word) 
+        chars = list(word) 
 
-            for char in chars:
+        for char in chars:
 
-                if char in num_chars:
+            if char in num_chars:
 
-                    num_chars[char] += 1
+                num_chars[char] += 1
 
-                else:
+            else:
 
-                    num_chars[char] = 1
+                num_chars[char] = 1
 
-    print(num_chars)
+    return num_chars
+
+
+def sort_key(dictionary):
     
+    return dictionary["num"]
+
+
+def sort_this_book(file):
+
+    first_dictionary = char_count(file)
+
+    list_of_dictionaries = []
+
+    for value in first_dictionary:
+        
+            second_dictionary = {}
+
+            if value.isalpha():
+
+                second_dictionary["letter"] = value
+
+                second_dictionary["num"] = first_dictionary[value]
+
+                list_of_dictionaries.append(second_dictionary)
+
+    list_of_dictionaries.sort(reverse=True, key=sort_key)
+
+    return list_of_dictionaries
+
+
