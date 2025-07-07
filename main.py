@@ -1,14 +1,25 @@
+import sys
+
+if len(sys.argv) != 2:
+
+    print("Usage: python3 main.py <path_to_book>")
+
+    sys.exit(1)
+
+
 def get_book_text(file):
 
     file_contents = file.read()
 
     return file_contents
 
+
 def main():
     
-    with open("books/frankenstein.txt") as f:
+    with open(sys.argv[1]) as f:
 
         print(get_book_text(f))
+
 
 from stats import count
 
@@ -17,6 +28,7 @@ from stats import char_count
 from stats import sort_this_book
 
 from stats import sort_key
+
 
 def main_2(file):
 
@@ -35,4 +47,5 @@ def main_2(file):
 
         print("============= END =============")
 
-main_2("books/frankenstein.txt")
+
+main_2(sys.argv[1])
